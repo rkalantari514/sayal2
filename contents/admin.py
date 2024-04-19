@@ -58,7 +58,7 @@ class TestAdmin(admin.ModelAdmin):
 admin.site.register(About, AboutAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Projects, ProjectsAdmin)
-admin.site.register(ProjectPicture, ServicesAdmin)
+admin.site.register(ProjectPicture, ProjectPictureAdmin)
 admin.site.register(Services, ServicesAdmin)
 admin.site.register(Articles, ArticlesAdmin)
 admin.site.register(ArticlesFile, ArticlesFileAdmin)
