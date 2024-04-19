@@ -23,7 +23,7 @@ class ProjectsAdmin(admin.ModelAdmin):
     class Meta:
         model = Projects
 class ProjectPictureAdmin(admin.ModelAdmin):
-    list_display = ['__str__','pimage', 'active', 'project']
+    list_display = ['__str__', 'active', 'project']
     class Meta:
         model = ProjectPicture
 
