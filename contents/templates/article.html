@@ -1,0 +1,58 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block content %}
+<div class="col-span-12 md:col-span-9 order-1 md:order-2">
+                    <div class="bg-white p-4 rounded-2xl leading-8">
+                        <div class="border-r-4 bg-slate-100 border-yellow-400 mb-4 rounded-2xl p-4">
+                            <h1 class="mb-2 text-base font-YekanBakh-Bold">{{ article.name }}</h1>
+                            <div class="flex items-center gap-4 text-xs">
+                                <span class="flex items-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                      </svg>
+                                        {{ article.time }}
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"></path>
+                                      </svg>
+                                        {{ article.category }}
+                                </span>
+                            </div>
+                        </div>
+                        <img class="rounded-2xl" src="{{ article.image2.url }}" alt="">
+                        <p class="mt-4">
+                                        {{ article.text }}
+                        </p>
+
+{#                        <div class="mt-4">#}
+{#                            <h3 class="font-YekanBakh-Bold text-slate-800 text-base">نظرات</h3>#}
+{#                            <p>شما با نام یاسمن وارد شده اید!!</p>#}
+{#                            <textarea class="textarea textarea-bordered w-full h-36 rounded-2xl" placeholder="نظر خود را بنویسید..."></textarea>#}
+{#                            <button class="btn btn-primary rounded-2xl">ارسال پیام</button>#}
+{#                        </div>#}
+                    </div>
+                </div>
+{% for f in files %}
+    <a href="{{ f.afile.url }}" target="_blank">
+    <div class="bg-white p-4 rounded-2xl flex items-center gap-4 my-4">
+                  <div class="bg-yellow-400 p-2 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-white">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+
+                  </div>
+                  <div>
+                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2">{{ f.name }}</h3>
+{#                    <p>sitename@info.com</p>#}
+                  </div>
+                </div>
+
+    </a>
+
+{% endfor %}
+{% endblock %}
+
+

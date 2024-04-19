@@ -1,0 +1,30 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block content %}
+
+    <section class="mb-20 px-4">
+        <div class="container mx-auto max-w-screen-xl">
+            <div class="container mx-auto max-w-screen-xl">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+                    {% for a in article %}
+                    <div class="bg-white rounded-2xl overflow-hidden cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform">
+                        <div class="relative">
+                            <div class="flex justify-center">
+                                <a href="blog.html" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">{{ a.category }}</a>
+                            </div>
+                            <a href="/article/{{ a.id }}"><img src="{{ a.image1.url }}" alt=""></a>
+                        </div>
+                        <div class="p-4 leading-8 w-full">
+                            <a href="/article/{{ a.id }}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">{{ a.name }}</h3></a>
+                            <p>{{ a.shorttext }}</p>
+                            <a href="/article/{{ a.id }}" class="text-yellow-400">مشاهده بیشتر »</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

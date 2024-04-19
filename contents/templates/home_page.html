@@ -1,0 +1,227 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block content %}
+    <section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">برخی از خدمات شرکت</h2>
+{#            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>#}
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" class="w-14 h-14 pb-3">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+{#                          d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>#}
+                          d="{{ d1 }}"/>
+                </svg>
+
+
+                <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ services.name1 }}</h3>
+                <p class="mt-2">{{ services.discription1 }}</p>
+            </div>
+            <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" class="w-14 h-14 pb-3">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+{#                          d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2"/>#}
+                          d="{{ d2 }}"/>
+                </svg>
+
+                <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ services.name2 }}</h3>
+                <p class="mt-2">{{ services.discription2 }}</p>
+            </div>
+            <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" class="w-14 h-14 pb-3">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+{#                          d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>#}
+                                          d="{{ d3 }}"/>
+
+                </svg>
+
+                <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ services.name3 }}</h3>
+                <p class="mt-2">{{ services.discription3 }}</p>
+            </div>
+            <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" class="w-14 h-14 pb-3">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+{#                          d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"/>#}
+                                          d="{{ d4 }}"/>
+
+                </svg>
+                <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ services.name4 }}</h3>
+                <p class="mt-2">{{ services.discription4 }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-20 bg-slate-800 px-4">
+    <div class="container mx-auto max-w-screen-2xl">
+        <div class="py-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl text-white font-YekanBakh-ExtraBlack">پروژه ها</h2>
+{#                <p class="text-white mt-2">++++++++</p>#}
+            </div>
+            <div class="swiper project">
+                <div class="swiper-wrapper">
+
+                    {% for pr in projects %}
+                    <div class="swiper-slide text-center group/proj cursor-pointer">
+                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                            <a href="/project/{{ pr.id }}">
+
+                                <img class="relative" src="{{ pr.p_picture.url }}" alt=""
+                                     srcset="">
+                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
+                            </a>
+                        </div>
+                        <figcaption
+                                class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                            <h3 class="font-YekanBakh-Bold text-sm">{{ pr.name }}</h3>
+                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                        </figcaption>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-20 px-4">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره شرکت</h2>
+        <p class="text-stone-700 mt-2">{{ about.title }}</p>
+    </div>
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 md:col-span-4">
+{#                <img class="rounded-2xl" src="{% static 'vaylar/assets/images/54.jpg' %}" alt="">#}
+                <img class="rounded-2xl" src="{{ about.master_image.url }}" alt="شرکت مهندسی سیال کار">
+            </div>
+            <div class="col-span-12 md:col-span-8 leading-8">
+                <p class="mb-4">
+                   {{ about.short_description }}
+                </p>
+                <a href="/about-us" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">گواهینامه ها</h2>
+{#            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>#}
+        </div>
+        <div class="swiper partners">
+            <div class="swiper-wrapper">
+                {% for g in grades %}
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img class="rounded-2xl" src="{{ g.gimage.url }}" alt="{{ g.name }}">
+                    </div>
+<br>
+                <h3 class="font-YekanBakh-Bold text-slate-800 text-sm text-center">{{ g.name }}</h3>
+                </div>
+
+{% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">اعضاء شرکت</h2>
+{#            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>#}
+        </div>
+        <div class="swiper customer">
+            <div class="swiper-wrapper">
+                {% for t in team %}
+                <div class="swiper-slide">
+                    <div class="flex items-center justify-center">
+                        <div class="bg-white rounded-2xl w-full sm:w-3/4 p-8 leading-8 text-center">
+                            <p>
+                                {{ t.about_me }}
+                            </p>
+                            <div class="flex items-center justify-center mt-4">
+                                <div class="avatar ml-4">
+                                    <div class="w-24 rounded-full">
+                                        <img src="{{ t.avatar.url }}"/>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">{{ t.name }}</h3>
+                                    <p>{{ t.position }}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="swiper-pagination static mt-4"></div>
+        </div>
+    </div>
+
+</section>
+
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">اخبار و مقالات</h2>
+            <p class="text-stone-700 mt-2">مقالات و خلاصه تجربیات فنی و مهندسی </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for a in articles %}
+            <div class="bg-white rounded-2xl overflow-hidden cursor-pointer transform hover:-translate-y-1 duration-300 transition-transform">
+                <div class="relative">
+                    <div class="flex justify-center">
+                        <a href="#" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: {{ a.category }}</a>
+                    </div>
+                    <a href="/article/{{ a.id }}"><img src="{{ a.image1.url }}" alt=""></a>
+                </div>
+                <div class="p-4 leading-8 w-full">
+                    <a href="single-blog.html"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">{{ a.name }}</h3></a>
+                    <p>{{ a.shorttext }}</p>
+                    <a href="/article/{{ a.id }}" class="text-yellow-400">مشاهده بیشتر »</a>
+                </div>
+            </div>
+{% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">مشتریان ما</h2>
+{#            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>#}
+        </div>
+        <div class="swiper partners">
+            <div class="swiper-wrapper">
+                {% for c in customer %}
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{{ c.cimage.url }}" alt="{{ c.name }}">
+                    </div>
+                </div>
+
+{% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

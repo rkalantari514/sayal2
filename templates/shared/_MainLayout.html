@@ -1,0 +1,23 @@
+{% load static %}
+{% load render_partial %}
+<!doctype html>
+<html lang="en" dir="rtl">
+<head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vaylar/node_modules/swiper/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vaylar/public/build/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+    {% include 'shared/_HeaderReferences.html' %}
+</head>
+<body class="font-YekanBakh-Regular text-sm bg-slate-50">
+{% block header_ref %}{% endblock %}
+{% render_partial 'header' %}
+{% block content %}{% endblock %}
+{% render_partial 'Bottom' %}
+{% block footer_ref %}{% endblock %}
+{% include 'shared/_FooterReferences.html' %}
+</body>
+</html>
