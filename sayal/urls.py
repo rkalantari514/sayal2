@@ -38,6 +38,7 @@ from sayal import settings
 # from yadeo.views import home_page, header, Search, Capsule, Bottom, Sidebar, welcome, ShareActionSheet
 from sayal.views import header, Search, Capsule, Bottom, Sidebar, welcome, ShareActionSheet
 
+
 # sitemaps = {
 #     "yads": YadSitemap,
 # }
