@@ -1,5 +1,6 @@
 from django.contrib import admin
-from contents.models import About, Team, Projects, ProjectPicture, Services, Articles, ArticlesFile, Customer,Grades
+from contents.models import About, Team, Projects, ProjectPicture, Services, Articles, ArticlesFile, Customer, Grades, \
+    Test
 
 
 # Register your models here.
@@ -48,6 +49,10 @@ class GradesAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'active']
     class Meta:
         model = Grades
+class TestAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'active']
+    class Meta:
+        model = Test
 
 
 admin.site.register(About, AboutAdmin)
@@ -59,3 +64,4 @@ admin.site.register(Articles, ArticlesAdmin)
 admin.site.register(ArticlesFile, ArticlesFileAdmin)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Grades, GradesAdmin)
+admin.site.register(Test, TestAdmin)

@@ -463,3 +463,17 @@ class Grades(models.Model):
         if width/height == w/h:
             img.thumbnail((w, h))
             img.save(picpath)
+
+
+class Test(models.Model):
+    active = models.BooleanField(default=True, verbose_name='فعال / غیر فعال')
+    super = models.BooleanField(default=True, verbose_name='ویژه / غیر ویژه')
+    name = models.CharField(max_length=150, verbose_name='نام')
+
+    class Meta:
+        verbose_name = 'test'
+        verbose_name_plural = 'tests'
+
+    def __str__(self):
+        return self.name
+
