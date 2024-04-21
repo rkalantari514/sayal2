@@ -192,6 +192,36 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.name
+    def save(self, *args, **kwargs):
+        super().save()
+        img = Image.open(self.p_picture.path)
+        width, height = img.size  # Get dimensions
+        w=150
+        h=150
+        picpath=self.p_picture.path
+        if width/height > w/h:
+            w2=w*height/h
+            left=(width-w2)/2
+            right=left+w2
+            top = 0
+            bottom = height
+            img = img.crop((left, top, right, bottom))
+            img.thumbnail((w, h))
+            img.save(picpath)
+
+        if width/height < w/h:
+            h2=h*width/w
+            left=0
+            right=width
+            top=(height-h2)/2
+            bottom=top+h2
+            img = img.crop((left, top, right, bottom))
+            img.thumbnail((w, h))
+            img.save(picpath)
+
+        if width/height == w/h:
+            img.thumbnail((w, h))
+            img.save(picpath)
 
 
 class ProjectPicture(models.Model):
