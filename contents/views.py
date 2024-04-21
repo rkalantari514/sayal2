@@ -8,7 +8,7 @@ def home_page(request):
     about = About.objects.filter(active=True).last()
     projects = Projects.objects.filter(active=True).all()
     services=Services.objects.filter(active=True).last()
-    team=Team.objects.filter(active=True).all()
+    team=Team.objects.filter(active=True,super=True ).all()
     articles=Articles.objects.filter(active=True).all()
     customer=Customer.objects.filter(active=True).all()
     grades=Grades.objects.filter(active=True).all()

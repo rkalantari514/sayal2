@@ -121,7 +121,7 @@ class About(models.Model):
 
 class Team(models.Model):
     active = models.BooleanField(default=True, verbose_name='فعال / غیر فعال')
-    super = models.BooleanField(default=True, verbose_name='ویژه / غیر ویژه')
+    super = models.BooleanField(default=True, verbose_name='عضویت هیئت مدیره')
     name = models.CharField(max_length=150, verbose_name='نام')
     position = models.CharField(max_length=150, verbose_name='جایگاه')
     about_me = models.CharField(max_length=150, verbose_name=' درباره من',null=True, blank=True,)
