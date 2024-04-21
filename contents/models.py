@@ -196,8 +196,8 @@ class Projects(models.Model):
         super().save()
         img = Image.open(self.p_picture.path)
         width, height = img.size  # Get dimensions
-        w=150
-        h=150
+        w=1024
+        h=614
         picpath=self.p_picture.path
         if width/height > w/h:
             w2=w*height/h
