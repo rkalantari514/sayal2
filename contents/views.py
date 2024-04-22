@@ -8,7 +8,7 @@ def home_page(request):
     about = About.objects.filter(active=True).last()
     projects = Projects.objects.filter(active=True).all()
     services=Services.objects.filter(active=True).last()
-    team=Team.objects.filter(active=True,super=True ).all()
+    team=Team.objects.filter(active=True,super=True).all()
     articles=Articles.objects.filter(active=True).all()
     customer=Customer.objects.filter(active=True).all()
     grades=Grades.objects.filter(active=True).all()
@@ -89,39 +89,39 @@ def project(request, *args, **kwargs):
 
     }
 
-    propic = ProjectPicture.objects.all()
-    for p in propic:
-        img = Image.open(p.pimage.path)
-        width, height = img.size  # Get dimensions
-        w = 10240
-        h = 6140
-        if width / height > w / h:
-            w2 = w * height / h
-            left = (width - w2) / 2
-            right = left + w2
-            top = 0
-            bottom = height
-            img = img.crop((left, top, right, bottom))
-            img.thumbnail((w, h))
-            img.save(p.pimage.path)
-            p.save()
 
-        if width / height < w / h:
-            h2 = h * width / w
-            left = 0
-            right = width
-            top = (height - h2) / 2
-            bottom = top + h2
-            img = img.crop((left, top, right, bottom))
-            img.thumbnail((w, h))
-            img.save(p.pimage.path)
-            print("p.pimage.path")
-            print(p.pimage.path)
-            p.save()
-        if width / height == w / h:
-            img.thumbnail((w, h))
-            img.save(p.pimage.path)
-            p.save()
+    # *** resize project picture
+    # propic = ProjectPicture.objects.all()
+    # for p in propic:
+    #     img = Image.open(p.pimage.path)
+    #     width, height = img.size  # Get dimensions
+    #     w = 10240
+    #     h = 6140
+    #     if width / height > w / h:
+    #         w2 = w * height / h
+    #         left = (width - w2) / 2
+    #         right = left + w2
+    #         top = 0
+    #         bottom = height
+    #         img = img.crop((left, top, right, bottom))
+    #         img.thumbnail((w, h))
+    #         img.save(p.pimage.path)
+    #         p.save()
+    #
+    #     if width / height < w / h:
+    #         h2 = h * width / w
+    #         left = 0
+    #         right = width
+    #         top = (height - h2) / 2
+    #         bottom = top + h2
+    #         img = img.crop((left, top, right, bottom))
+    #         img.thumbnail((w, h))
+    #         img.save(p.pimage.path)
+    #         p.save()
+    #     if width / height == w / h:
+    #         img.thumbnail((w, h))
+    #         img.save(p.pimage.path)
+    #         p.save()
 
     return render(request, 'project.html', context)
 
