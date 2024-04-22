@@ -156,7 +156,7 @@ def articles(request, *args, **kwargs):
         article=Articles.objects.filter(active=True,is_article=True).all()
         head1="مجموعه مقالات"
     if ataype=="tip":
-        article=Articles.objects.filter(active=True,is_article=True).all()
+        article=Articles.objects.filter(active=True,is_tips=True).all()
         head1 = "نکات و تجربیات"
 
     context = {
