@@ -8,7 +8,8 @@ def home_page(request):
     about = About.objects.filter(active=True).last()
     projects = Projects.objects.filter(active=True).all()
     services=Services.objects.filter(active=True).last()
-    team=Team.objects.filter(active=True,super=True).all()
+    head_team=Team.objects.filter(active=True,super=True).all()
+    team=Team.objects.filter(active=True,super=False).all()
     articles=Articles.objects.filter(active=True).all()
     customer=Customer.objects.filter(active=True).all()
     grades=Grades.objects.filter(active=True).all()
@@ -35,6 +36,7 @@ def home_page(request):
         'articles': articles,
         'customer': customer,
         'grades': grades,
+        'head_team': head_team,
         'team': team,
         'd1':d1,
         'd2':d2,
@@ -46,13 +48,15 @@ def home_page(request):
 
 def about_us(request):
     about = About.objects.filter(active=True).last()
-    team = Team.objects.filter(active=True).all()
+    head_team = Team.objects.filter(active=True, super=True).all()
+    team = Team.objects.filter(active=True, super=False).all()
     grades=Grades.objects.filter(active=True).all()
 
     context = {
         'title': 'شرکت مهندسی سیال کار|درباره ما',
         'about': about,
         'team': team,
+        'head_team': head_team,
         'grades': grades,
     }
     return render(request, 'about_us.html', context)

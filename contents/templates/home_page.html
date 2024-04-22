@@ -3,7 +3,29 @@
 {% load render_partial %}
 
 {% block content %}
-    <section class="my-20 px-4">
+
+<section class="my-2 px-4">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره شرکت</h2>
+        <p class="text-stone-700 mt-2">{{ about.title }}</p>
+    </div>
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 md:col-span-4">
+{#                <img class="rounded-2xl" src="{% static 'vaylar/assets/images/54.jpg' %}" alt="">#}
+                <img class="rounded-2xl" src="{{ about.master_image.url }}" alt="شرکت مهندسی سیال کار">
+            </div>
+            <div class="col-span-12 md:col-span-8 leading-8">
+                <p class="mb-4">
+                   {{ about.short_description }}
+                </p>
+                <a href="/about-us" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-20 px-4">
     <div class="container mx-auto max-w-screen-xl">
         <div class="text-center mb-10">
             <h2 class="text-3xl font-YekanBakh-ExtraBlack">برخی از خدمات شرکت</h2>
@@ -96,26 +118,6 @@
 </section>
 
 <section class="my-20 px-4">
-    <div class="text-center mb-10">
-        <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره شرکت</h2>
-        <p class="text-stone-700 mt-2">{{ about.title }}</p>
-    </div>
-    <div class="container mx-auto max-w-screen-xl">
-        <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-12 md:col-span-4">
-{#                <img class="rounded-2xl" src="{% static 'vaylar/assets/images/54.jpg' %}" alt="">#}
-                <img class="rounded-2xl" src="{{ about.master_image.url }}" alt="شرکت مهندسی سیال کار">
-            </div>
-            <div class="col-span-12 md:col-span-8 leading-8">
-                <p class="mb-4">
-                   {{ about.short_description }}
-                </p>
-                <a href="/about-us" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="my-20 px-4">
     <div class="container mx-auto max-w-screen-xl">
         <div class="text-center mb-10">
             <h2 class="text-3xl font-YekanBakh-ExtraBlack">گواهینامه ها</h2>
@@ -141,8 +143,46 @@
 <section class="my-20 px-4">
     <div class="container mx-auto max-w-screen-xl">
         <div class="text-center mb-10">
-            <h2 class="text-3xl font-YekanBakh-ExtraBlack">اعضاء شرکت</h2>
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">اعضاء هیئت مدیره</h2>
 {#            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>#}
+        </div>
+        <div class="swiper customer">
+            <div class="swiper-wrapper">
+                {% for t in head_team %}
+                <div class="swiper-slide">
+                    <div class="flex items-center justify-center">
+                        <div class="bg-white rounded-2xl w-full sm:w-3/4 p-8 leading-8 text-center">
+                            <p>
+                                {{ t.about_me }}
+                            </p>
+                            <div class="flex items-center justify-center mt-4">
+                                <div class="avatar ml-4">
+                                    <div class="w-24 rounded-full">
+                                        <img src="{{ t.avatar.url }}"/>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">{{ t.name }}</h3>
+                                    <p>{{ t.position }}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="swiper-pagination static mt-4"></div>
+        </div>
+    </div>
+
+</section>
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">همکاران ما</h2>
+            <p class="text-stone-700 mt-2">از گذشته تا تمروز</p>
         </div>
         <div class="swiper customer">
             <div class="swiper-wrapper">
