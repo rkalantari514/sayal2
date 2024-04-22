@@ -1,6 +1,6 @@
 from django.contrib import admin
 from contents.models import About, Team, Projects, ProjectPicture, Services, Articles, ArticlesFile, Customer, Grades, \
-    Test
+    Test, ArticlesPicture
 from django.utils.html import format_html
 
 
@@ -29,6 +29,12 @@ class ProjectPictureAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'image_tag', 'active', 'project','pimage']
     class Meta:
         model = ProjectPicture
+class ArticlesPictureAdmin(admin.ModelAdmin):
+    def image_tag(self, obj):
+        return format_html('<img src="{}" style="max-width:150px; max-height:150px"/>'.format(obj.aimage.url))
+    list_display = ['__str__', 'image_tag', 'active', 'article']
+    class Meta:
+        model = ArticlesPicture
 
 
 
@@ -73,4 +79,5 @@ admin.site.register(Articles, ArticlesAdmin)
 admin.site.register(ArticlesFile, ArticlesFileAdmin)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Grades, GradesAdmin)
+admin.site.register(ArticlesPicture, ArticlesPictureAdmin)
 admin.site.register(Test, TestAdmin)

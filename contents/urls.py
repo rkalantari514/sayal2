@@ -7,7 +7,7 @@ urlpatterns = [
     path('contact-us', contact_us,name="contact_us"),
     path('projects', projects,name="projects"),
     path('project/<prid>', project,name="project"),
-    path('articles', articles,name="articles"),
+    path('articles/<ataype>', articles,name="articles"),
     path('article/<arid>', article,name="article"),
 
 ]

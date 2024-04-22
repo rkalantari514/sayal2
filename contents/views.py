@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from contents.models import About, Team, Projects, ProjectPicture, Services, Articles, ArticlesFile, Customer, Grades
+from contents.models import About, Team, Projects, ProjectPicture, Services, Articles, ArticlesFile, Customer, Grades, \
+    ArticlesPicture
 from PIL import Image
 
 
@@ -135,24 +136,33 @@ def article(request, *args, **kwargs):
     article=Articles.objects.filter(id=arid).first()
     # picture=ProjectPicture.objects.filter(project__id=prid).all()
     files=ArticlesFile.objects.filter(article__id=arid).all()
+    imags=ArticlesPicture.objects.filter(article__id=arid).all()
 
 
     context = {
-        'title': 'شرکت مهندسی سیال کار|مقاله',
+        'title': 'شرکت مهندسی سیال کار|مقاله و تجربه',
         'article': article,
         'files': files,
+        'imags': imags,
         # 'picture': picture,
 
     }
     return render(request, 'article.html', context)
 
 
-def articles(request):
-    article=Articles.objects.filter(active=True).all()
+def articles(request, *args, **kwargs):
+    ataype = kwargs['ataype']
+    if ataype=="article":
+        article=Articles.objects.filter(active=True,is_article=True).all()
+        head1="مجموعه مقالات"
+    if ataype=="tip":
+        article=Articles.objects.filter(active=True,is_article=True).all()
+        head1 = "نکات و تجربیات"
 
     context = {
         'title': 'شرکت مهندسی سیال کار|مقالات',
         'article': article,
+        'head1':head1,
     }
     return render(request, 'articles.html', context)
 

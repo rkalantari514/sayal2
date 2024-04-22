@@ -36,6 +36,14 @@ def upload_propic_image_path(instance, filename):
     final_name = f"{instance.id}{ext}"
     # final_name = f"{instance.id}-{instance.title}{ext}"
     return f"propic/{final_name}"
+
+def upload_artpic_image_path(instance, filename):
+    name, ext = get_filename_ext(filename)
+    final_name = f"{instance.id}{ext}"
+    # final_name = f"{instance.id}-{instance.title}{ext}"
+    return f"artpic/{final_name}"
+
+
 def upload_articles_image_path(instance, filename):
     name, ext = get_filename_ext(filename)
     final_name = f"{instance.id}{ext}"
@@ -346,6 +354,9 @@ class Services(models.Model):
 
 class Articles(models.Model):
     active = models.BooleanField(default=True, verbose_name='فعال / غیر فعال')
+    is_article = models.BooleanField(default=True, verbose_name='مقاله است')
+    is_tips = models.BooleanField(default=False, verbose_name='نکات و تجربه است')
+    active = models.BooleanField(default=True, verbose_name='فعال / غیر فعال')
     name = models.CharField(max_length=150, verbose_name='عنوان مقاله')
     time = models.CharField(max_length=150, verbose_name='زمان مقاله', null=True, blank=True)
     category = models.CharField(max_length=150, verbose_name='دسته بندی')
@@ -446,6 +457,60 @@ class ArticlesFile(models.Model):
         # return "%s %s" % (self.name, self.family)
     # def get_absolute_url(self):
     #     return f"/yadbood/{self.id}"
+
+
+class ArticlesPicture(models.Model):
+    active = models.BooleanField(default=True, verbose_name='فعال / غیر فعال')
+    aimage = models.ImageField(upload_to=upload_artpic_image_path, null=True, blank=True, verbose_name='تصویر ')
+    # pimage =ResizedImageField(size=[300, 120], upload_to=upload_propic_image_path, blank=True, null=True,verbose_name='تصویر ')
+    article=models.ForeignKey(Articles, blank=True, null=True, on_delete=models.CASCADE ,verbose_name='مقاله')
+
+    # objects=YadManager()
+    class Meta:
+        verbose_name = 'تصویر مقاله'
+        verbose_name_plural = 'تصاویر مقاله ها'
+
+    def __str__(self):
+        t=str(self.id)
+        return t
+        # return "%s %s" % (self.name, self.family)
+    # def get_absolute_url(self):
+    #     return f"/yadbood/{self.id}"
+
+    def save(self, *args, **kwargs):
+        super().save()
+        img = Image.open(self.aimage.path)
+        width, height = img.size  # Get dimensions
+        w=512
+        h=307
+        picpath=self.aimage.path
+        if width/height > w/h:
+            w2=w*height/h
+            left=(width-w2)/2
+            right=left+w2
+            top = 0
+            bottom = height
+            img = img.crop((left, top, right, bottom))
+            img.thumbnail((w, h))
+            img.save(picpath)
+
+        if width/height < w/h:
+            h2=h*width/w
+            left=0
+            right=width
+            top=(height-h2)/2
+            bottom=top+h2
+            img = img.crop((left, top, right, bottom))
+            img.thumbnail((w, h))
+            img.save(picpath)
+
+        if width/height == w/h:
+            img.thumbnail((w, h))
+            img.save(picpath)
+
+
+
+
 
 
 class Grades(models.Model):
