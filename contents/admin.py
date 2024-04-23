@@ -7,6 +7,10 @@ from django.utils.html import format_html
 # Register your models here.
 class AboutAdmin(admin.ModelAdmin):
     list_display = ['title', 'active']
+    list_filter =['title', 'active']
+    list_editable =['active']
+    search_fields =['title', 'active']
+
     # # list_filter = ['active']
     # list_editable = ['name','family','active','owner']
     # search_fields = ['name','family']
@@ -17,23 +21,41 @@ class AboutAdmin(admin.ModelAdmin):
 
 class TeamAdmin(admin.ModelAdmin):
     list_display = ['name', 'active','super']
+    list_filter =  ['name', 'active','super']
+    list_editable = [ 'active','super']
+    search_fields =  ['name', 'active','super']
+
+
+
     class Meta:
         model = Team
 class ProjectsAdmin(admin.ModelAdmin):
     list_display = ['name', 'active','subject']
-    class Meta:
+    list_filter =['name', 'active','subject']
+    list_editable =[ 'active','subject']
+    search_fields =['name', 'active','subject']
+
+class Meta:
         model = Projects
 class ProjectPictureAdmin(admin.ModelAdmin):
     def image_tag(self, obj):
         return format_html('<img src="{}" style="max-width:150px; max-height:150px"/>'.format(obj.pimage.url))
     list_display = ['__str__', 'image_tag', 'active', 'project','pimage']
-    class Meta:
+    list_filter =['active', 'project','pimage']
+    list_editable =[ 'project','pimage']
+    search_fields =['active', 'project','pimage']
+
+class Meta:
         model = ProjectPicture
 class ArticlesPictureAdmin(admin.ModelAdmin):
     def image_tag(self, obj):
         return format_html('<img src="{}" style="max-width:150px; max-height:150px"/>'.format(obj.aimage.url))
     list_display = ['__str__', 'image_tag', 'active', 'article']
-    class Meta:
+    list_filter =['active', 'article']
+    list_editable =['active', 'article']
+    search_fields =['active', 'article']
+
+class Meta:
         model = ArticlesPicture
 
 
@@ -44,29 +66,53 @@ class ArticlesPictureAdmin(admin.ModelAdmin):
 
 class ArticlesAdmin(admin.ModelAdmin):
     list_display = ['__str__','name', 'active']
-    class Meta:
+    list_filter = ['name', 'active']
+    list_editable =['name', 'active']
+    search_fields =['name', 'active']
+
+class Meta:
         model = Articles
 
 
 class ServicesAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'active']
-    class Meta:
+    list_filter =['active']
+    list_editable =['active']
+    search_fields =['active']
+
+class Meta:
         model = Services
 class ArticlesFileAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'active']
-    class Meta:
+    list_filter =['active']
+    list_editable =['active']
+    search_fields =['active']
+
+class Meta:
         model = ArticlesFile
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'active']
-    class Meta:
+    list_filter =['active']
+    list_editable =['active']
+    search_fields =['active']
+
+class Meta:
         model = Customer
 class GradesAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'active']
-    class Meta:
+    list_filter =['active']
+    list_editable =['active']
+    search_fields =['active']
+
+class Meta:
         model = Grades
 class TestAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'active']
-    class Meta:
+    list_filter =['active']
+    list_editable =['active']
+    search_fields =['active']
+
+class Meta:
         model = Test
 
 
