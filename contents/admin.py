@@ -42,7 +42,7 @@ class ProjectPictureAdmin(admin.ModelAdmin):
         return format_html('<img src="{}" style="max-width:150px; max-height:150px"/>'.format(obj.pimage.url))
     list_display = ['__str__', 'image_tag', 'active', 'project','pimage']
     list_filter =['active', 'project','pimage']
-    list_editable =[ 'project','pimage']
+    list_editable =['active', 'project','pimage']
     search_fields =['active', 'project','pimage']
 
 class Meta:
