@@ -4,12 +4,25 @@
 <html lang="en" dir="rtl">
 <head>
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'vaylar/node_modules/swiper/swiper-bundle.min.css' %}">
-    <link rel="stylesheet" href="{% static 'vaylar/public/build/style.css' %}">
-    <title>{{ title }}</title>
-</head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'vaylar/node_modules/swiper/swiper-bundle.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vaylar/public/build/style.css' %}">
+        <style>
+            p.a {
+                white-space: nowrap;
+            }
+
+            p.b {
+                white-space: normal;
+            }
+
+            p.c {
+                white-space: pre;
+            }
+        </style>
+        <title>{{ title }}</title>
+    </head>
     {% include 'shared/_HeaderReferences.html' %}
 </head>
 <body class="font-YekanBakh-Regular text-sm bg-slate-50">
