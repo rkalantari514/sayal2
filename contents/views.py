@@ -1,10 +1,18 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.response import Response
+
+
 from contents.models import About, Team, Projects, ProjectPicture, Services, Articles, ArticlesFile, Customer, Grades, \
     ArticlesPicture
 from PIL import Image
 
 
 # Create your views here.
+from contents.serializers import TestSerializer
+
+
 def home_page(request):
     about = About.objects.filter(active=True).last()
     projects = Projects.objects.filter(active=True).all()
@@ -167,3 +175,12 @@ def articles(request, *args, **kwargs):
     return render(request, 'articles.html', context)
 
 
+class testApi(APIView):
+    def get(self, request):
+        # api_key_secret = request.META.get('API_KEY')
+        # print('api_key_secret')
+        # print(api_key_secr/et)
+        # if api_key_secret == settings.API_KEY_SECRET
+        qs = Projects.objects.filter(active=True).all()
+        serialisers = TestSerializer(qs, many=True)
+        return Response(serialisers.data, status=status.HTTP_200_OK)

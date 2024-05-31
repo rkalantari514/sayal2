@@ -1,5 +1,5 @@
 from django.urls import path
-from contents.views import home_page,about_us,projects,project,article,articles,contact_us
+from contents.views import home_page, about_us, projects, project, article, articles, contact_us, testApi
 
 urlpatterns = [
     path('', home_page,name="home"),
@@ -9,6 +9,7 @@ urlpatterns = [
     path('project/<prid>', project,name="project"),
     path('articles/<ataype>', articles,name="articles"),
     path('article/<arid>', article,name="article"),
+    path('testapi', testApi.as_view(), name="testapi"),
 
 ]
 
