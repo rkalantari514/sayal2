@@ -11,5 +11,6 @@ urlpatterns = [
     path('article/<arid>', article,name="article"),
     path('testapi', testApi.as_view(), name="testapi"),
 
+
 ]
 
